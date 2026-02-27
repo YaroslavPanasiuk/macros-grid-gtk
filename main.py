@@ -102,7 +102,7 @@ def on_activate(app):
     else:
         config_dir = os.path.join(GLib.get_user_config_dir(), 'macro-grid')
         main_config_path = os.path.join(config_dir, 'config.json')
-        commands_path = os.path.join(base_dir, 'commands.json')
+        commands_path = os.path.join(config_dir, 'commands.json')
 
         if os.path.exists(main_config_path):
             try:
@@ -112,19 +112,34 @@ def on_activate(app):
             except (json.JSONDecodeError, IOError):
                 pass
 
-    commands_path = os.path.expanduser(commands_path)
+        else:
+            os.makedirs(config_dir, exist_ok=True)
+            try:
+                with open(main_config_path, 'w') as f:
+                    json.dump({"commands_file": commands_path}, f, indent=2)
+            except IOError:
+                pass
+        
+        if not os.path.exists(commands_path):
+            os.makedirs(config_dir, exist_ok=True)
+            try:
+                with open(commands_path, 'w') as f:
+                    json.dump({"commands": [{
+                            "label": "Create commands",
+                            "command": f"xdg-open {config_dir}/commands.json",
+                            "icon": "folder-symbolic",
+                            "icon_size": 32,
+                            "bg_color": "#C28F4D"
+                            }]
+                        }, 
+                        f, 
+                        indent=2
+                    )
+            except IOError:
+                pass
 
-    try:
         with open(commands_path, 'r') as f:
             config = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        config = {"settings": {}, "commands": []}
-
-    try:
-        with open(commands_path, 'r') as f:
-            config = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        config = {"settings": {}, "commands": []}
 
     commands = config.get("commands", [])
     main_layout = build_layout(commands, Gtk.Orientation.VERTICAL)
