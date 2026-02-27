@@ -43,6 +43,8 @@
         ];
 
         installPhase = ''
+          runHook preInstall
+
           mkdir -p $out/bin
           cp main.py $out/bin/macro-grid
           cp style.css $out/bin/style.css
@@ -63,6 +65,8 @@
 
           mkdir -p $out/share/icons/hicolor/256x256/apps
           cp ${./icons/256x256.png} $out/share/icons/hicolor/256x256/apps/macro-grid.png
+
+          runHook postInstall
         '';
       };
 
