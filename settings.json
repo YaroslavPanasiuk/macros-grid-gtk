@@ -1,0 +1,18 @@
+{
+  "commands": [
+    {
+      "label": "List Home",
+      "command": "ls -la ~",
+      "icon": "folder-symbolic",
+      "icon_size": 64,
+      "bg_color": "#bf616a"
+    },
+    {
+      "label": "Disk Usage",
+      "command": "df -h",
+      "icon": "drive-harddisk-symbolic",
+      "icon_size": 32,
+      "bg_color": "#81a1c1"
+    }
+  ]
+}
