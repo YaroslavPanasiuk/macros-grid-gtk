@@ -1,0 +1,88 @@
+{
+  "commands": 
+  [
+    [
+      {
+        "label": "",
+        "command": "playerctl -p chromium play-pause",
+        "icon": "im-youtube-symbolic",
+        "icon_size": 32,
+        "bg_color": "#CC0029"
+      },
+      {
+        "label": "",
+        "command": "playerctl -p firefox play-pause",
+        "icon": "firefox-symbolic",
+        "icon_size": 32,
+        "bg_color": "#CB4C24"
+      },
+      {
+        "label": "",
+        "command": "playerctl -p vlc play-pause",
+        "icon": "vlc-symbolic",
+        "icon_size": 32,
+        "bg_color": "#CB8500"
+      }
+    ],
+    [
+      {
+        "label": "",
+        "command": "playerctl previous",
+        "icon": "media-skip-backward-symbolic",
+        "icon_size": 32
+      },
+      {
+        "label": "",
+        "command": "playerctl play-pause",
+        "icon": "media-playback-start-symbolic",
+        "icon_size": 32,
+        "bg_color": "#305066"
+      },
+      {
+        "label": "",
+        "command": "playerctl next",
+        "icon": "media-skip-forward-symbolic",
+        "icon_size": 32
+      }
+    ],
+    [
+      {
+        "label": "",
+        "command": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 10%-",
+        "bg_color": "#486172",
+        "icon": "audio-volume-low-symbolic",
+        "icon_size": 32
+      },
+      {
+        "label": "",
+        "command": "for i in {1..20}; do wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%- ; sleep 0.025; done &",
+        "icon": "arrow-down-double-symbolic",
+        "icon_size": 32,
+        "bg_color": "#385365"
+      },
+      {
+        "label": "",
+        "command": "for i in {1..20}; do wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%+ ; sleep 0.025; done &",
+        "icon": "arrow-up-double-symbolic",
+        "icon_size": 32,
+        "bg_color": "#204761"
+      },
+      {
+        "label": "",
+        "command": "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 10%+",
+        "bg_color": "#194b6c",
+        "icon": "audio-volume-muted-blocking-symbolic",
+        "icon_size": 32
+      }
+    ],
+    [
+      {
+        "label": "remove all media",
+        "command": "playerctl -a stop",
+        "icon": "media-playback-stop-symbolic",
+        "icon_size": 32,
+        "bg_color": "#cd3630"
+      }
+    ]
+  ]
+}

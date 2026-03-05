@@ -1,0 +1,197 @@
+{
+  "commands": 
+  [
+    [
+      [
+        {
+          "label": "",
+          "command": "playerctl -p chromium play-pause",
+          "icon": "im-youtube-symbolic",
+          "icon_size": 48,
+          "bg_color": "#CC0029"
+        },
+        {
+          "label": "",
+          "command": "playerctl -p firefox play-pause",
+          "icon": "firefox-symbolic",
+          "icon_size": 48,
+          "bg_color": "#CB4C24"
+        },
+        {
+          "label": "",
+          "command": "playerctl -p vlc play-pause",
+          "icon": "vlc-symbolic",
+          "icon_size": 48,
+          "bg_color": "#CB8500"
+        }
+      ],
+      [
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Chromium\"; \"i\"))? | .id' | head -n 1) 1%+ ; sleep 0.025; done &",
+          "icon": "audio-volume-muted-blocking-symbolic",
+          "icon_size": 32,
+          "bg_color": "#853544"
+        },
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Chromium\"; \"i\"))? | .id' | head -n 1) 1%- ; sleep 0.025; done &",
+          "icon": "audio-volume-low-symbolic",
+          "icon_size": 32,
+          "bg_color": "#7a3040"
+        },
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Zen\"; \"i\"))? | .id' | head -n 1) 1%+ ; sleep 0.025; done &",
+          "icon": "audio-volume-muted-blocking-symbolic",
+          "icon_size": 32,
+          "bg_color": "#855041"
+        },
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Zen\"; \"i\"))? | .id' | head -n 1) 1%- ; sleep 0.025; done &",
+          "icon": "audio-volume-low-symbolic",
+          "icon_size": 32,
+          "bg_color": "#7a4c3c"
+        },
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"VLC media player\"; \"i\"))? | .id' | head -n 1) 1%+ ; sleep 0.025; done &",
+          "icon": "audio-volume-muted-blocking-symbolic",
+          "icon_size": 32,
+          "bg_color": "#856735"
+        },
+        {
+          "label": "",
+          "command": "for i in {1..10}; do wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"VLC media player\"; \"i\"))? | .id' | head -n 1) 1%- ; sleep 0.025; done &",
+          "icon": "audio-volume-low-symbolic",
+          "icon_size": 32,
+          "bg_color": "#7a6430"
+        }
+      ],
+      [[
+        [
+          {
+            "label": "",
+            "command": "wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Chromium\"; \"i\"))? | .id' | head -n 1) 120%-",
+            "icon": "player-volume-muted-symbolic",
+            "icon_size": 32,
+            "bg_color": "#66474e"
+          },
+          {
+            "label": "",
+            "command": "wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"Zen\"; \"i\"))? | .id' | head -n 1) 120%-",
+            "icon": "player-volume-muted-symbolic",
+            "icon_size": 32,
+            "bg_color": "#664f47"
+          },
+          {
+            "label": "",
+            "command": "wpctl set-volume $(pw-dump | jq -r '.[] | select(.info.props[\"node.name\"] | test(\"VLC media player\"; \"i\"))? | .id' | head -n 1) 120%-",
+            "icon": "player-volume-muted-symbolic",
+            "icon_size": 32,
+            "bg_color": "#665b47"
+          }
+        ],
+        {
+          "label": "",
+          "command": "playerctl -a stop",
+          "icon": "media-playback-stop-symbolic",
+          "icon_size": 32,
+          "bg_color": "#99150f"
+        }
+      ]]
+    ],
+    [[
+      {
+        "label": "",
+        "command": "playerctl play-pause",
+        "icon": "media-playback-start-symbolic",
+        "icon_size": 32,
+        "bg_color": "#305066"
+      },
+      [
+        [[
+          {
+            "label": "",
+            "command": "playerctl previous",
+            "icon": "media-skip-backward-symbolic",
+            "icon_size": 32
+          },
+          {
+            "label": "",
+            "command": "swayosd-client --monitor eDP-1 --output-volume -5 --max-volume 120",
+            "icon": "audio-volume-low-symbolic",
+            "icon_size": 32,
+            "bg_color": "#365163"
+          },
+          {
+            "label": "",
+            "command": "swayosd-client --monitor eDP-1 --output-volume +5 --max-volume 120",
+            "icon": "audio-volume-muted-blocking-symbolic",
+            "icon_size": 32,
+            "bg_color": "#274a62"
+          },
+          {
+            "label": "",
+            "command": "playerctl next",
+            "icon": "media-skip-forward-symbolic",
+            "icon_size": 32
+          }
+        ]]
+      ],
+      {
+        "label": "",
+        "command": "swayosd-client --monitor eDP-1 --output-volume -120",
+        "icon": "player-volume-muted-symbolic",
+        "icon_size": 32,
+        "bg_color": "#6c6161"
+      }
+    ]],
+    [
+      [
+        [
+          {
+            "label": "",
+            "command": "hyprctl dispatch focusmonitor DP-1 && ydotool key 105:1 105:0",
+            "icon": "image-resize-canvas-left-symbolic",
+            "icon_size": 32,
+            "bg_color": "#39526c"
+          },
+          {
+            "label": "",
+            "command": "hyprctl dispatch focusmonitor DP-1 && ydotool key 106:1 106:0",
+            "icon": "image-resize-canvas-right-symbolic",
+            "icon_size": 32,
+            "bg_color": "#3b4f62"
+          }
+        ],
+        [[
+          [            
+            {
+              "label": "<-",
+              "command": "hyprctl dispatch focusmonitor DP-1 && hyprctl dispatch split:workspace -1",
+              "icon": "monitor-symbolic",
+              "icon_size": 32,
+              "bg_color": "#304554"
+            },
+            {
+              "label": "->",
+              "command": "hyprctl dispatch focusmonitor DP-1 && hyprctl dispatch split:workspace +1",
+              "icon": "monitor-symbolic",
+              "icon_size": 32,
+              "bg_color": "#1a3b52"
+            }            
+          ],
+          {
+            "label": "",
+            "command": "hyprctl monitors -j | jq -r '.[1].dpmsStatus' | grep -q 'true' && hyprctl dispatch dpms off DP-1 || hyprctl dispatch dpms on DP-1",
+            "icon": "preferences-desktop-screensaver-symbolic",
+            "icon_size": 32,
+            "bg_color": "#99150f"
+          }
+        ]]
+      ]
+    ]
+  ]
+}
