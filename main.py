@@ -41,6 +41,8 @@ def create_button(item):
 
     label_text = item.get("label", "Unknown")
     label = Gtk.Label(label=label_text)
+    if len(label_text) == 0:
+        label.set_visible(False)
     box.append(label)
 
     btn.set_child(box)
@@ -60,7 +62,7 @@ def build_layout(node, orientation):
     
     if isinstance(node, list):
         # Create a box that forces equal size for all its children
-        box = Gtk.Box(orientation=orientation, spacing=10)
+        box = Gtk.Box(orientation=orientation, spacing=5)
         box.set_homogeneous(True)
         box.set_hexpand(True)
         box.set_vexpand(True)
@@ -150,10 +152,10 @@ def on_activate(app):
     
     if main_layout:
         # Re-apply external margins to the root box
-        main_layout.set_margin_top(20)
-        main_layout.set_margin_bottom(20)
-        main_layout.set_margin_start(20)
-        main_layout.set_margin_end(20)
+        main_layout.set_margin_top(10)
+        main_layout.set_margin_bottom(10)
+        main_layout.set_margin_start(10)
+        main_layout.set_margin_end(10)
         win.set_child(main_layout)
 
     win.present()
