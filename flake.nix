@@ -49,7 +49,6 @@
           cp main.py $out/bin/macro-grid
           cp style.css $out/bin/style.css
           cp layout.ui $out/bin/layout.ui
-          cp settings.json $out/bin/settings.json
           chmod +x $out/bin/macro-grid
           mkdir -p $out/share/icons/hicolor/16x16/apps
           cp ${./icons/16x16.png} $out/share/icons/hicolor/16x16/apps/macro-grid.png
